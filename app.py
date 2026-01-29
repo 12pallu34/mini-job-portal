@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 import sqlite3
 
 app = Flask(__name__)
-init_db()
 # ---------- DATABASE CONNECTION ----------
 def get_db_connection():
     conn = sqlite3.connect("/tmp/database.db")
@@ -74,6 +73,7 @@ def apply(job_id):
         return "Application submitted successfully!"
 
     return render_template("apply.html")
+
 
 
 
