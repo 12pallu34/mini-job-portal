@@ -27,6 +27,8 @@ def init_db():
     """)
     conn.commit()
     conn.close()
+ init_db()   
+    
 # ---------- HOME: SHOW JOBS ----------
 @app.route("/")
 def home():
@@ -73,6 +75,7 @@ def apply(job_id):
         return "Application submitted successfully!"
 
     return render_template("apply.html")
+
 
 
 
