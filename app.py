@@ -2,11 +2,12 @@ from flask import Flask, render_template, request, redirect
 import sqlite3
 
 app = Flask(__name__)
-# ---------- DATABASE CONNECTION ----------
+
 def get_db_connection():
     conn = sqlite3.connect("/tmp/database.db")
     conn.row_factory = sqlite3.Row
     return conn
+
 def init_db():
     conn = get_db_connection()
     conn.execute("""
@@ -27,7 +28,7 @@ def init_db():
     """)
     conn.commit()
     conn.close()
- init_db()   
+init_db()   
     
 # ---------- HOME: SHOW JOBS ----------
 @app.route("/")
@@ -75,6 +76,7 @@ def apply(job_id):
         return "Application submitted successfully!"
 
     return render_template("apply.html")
+
 
 
 
